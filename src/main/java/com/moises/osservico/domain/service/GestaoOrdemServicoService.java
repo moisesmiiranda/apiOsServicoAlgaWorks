@@ -48,7 +48,7 @@ public class GestaoOrdemServicoService {
 		ordemServicoRepository.save(ordemServico);
 	}
 
-	//um comentário está ligado a uma ordem de serciço
+	//um comentário está ligado a uma ordem de serviço
 	public Comentario adicionarComentario(Long ordemServicoId, String descricao) {
 		OrdemServico ordemServico = buscar(ordemServicoId);
 
