@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.moises.osservico.api.model.Comentario;
-import com.moises.osservico.domain.model.exception.NegocioException;
+import com.moises.osservico.domain.exception.NegocioException;
 
 
 @Entity
