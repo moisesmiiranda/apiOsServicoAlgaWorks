@@ -14,6 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.moises.osservico.api.model.Comentario;
+import com.moises.osservico.domain.model.exception.NegocioException;
+
 
 @Entity
 public class OrdemServico {
@@ -35,7 +38,7 @@ public class OrdemServico {
 	private OffsetDateTime dataFinalizacao;
 
 	@OneToMany(mappedBy = "ordemServico")
-//	private List<Comentario> comentarios = new ArrayList<>();
+	private List<Comentario> comentarios = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -93,13 +96,13 @@ public class OrdemServico {
 		this.dataFinalizacao = dataFinalizacao;
 	}
 
-/*	public List<Comentario> getComentarios() {
+	public List<Comentario> getComentarios() {
 		return comentarios;
 	}
 
 	public void setComentarios(List<Comentario> comentarios) {
 		this.comentarios = comentarios;
-	}*/
+	}
 
 	@Override
 	public int hashCode() {
@@ -136,7 +139,7 @@ public class OrdemServico {
 	
 	public void finalizar() {
 		if (naoPodeSerFinalizada()) {
-			//throw new NegocioException("Ordem de serviço não pode ser finalizada");
+			throw new NegocioException("Ordem de serviço não pode ser finalizada");
 		}
 		
 		setStatus(StatusOrdemServico.FINALIZADA);
